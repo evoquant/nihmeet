@@ -30,7 +30,6 @@ def create_dataframe(data):
     """
     return pd.DataFrame(data)
 
-
 def generate_fed_reg_date_plot(df):
     """
     Create a combined bar and scatter plot of cumulative entries by Federal Register publication date.
@@ -41,13 +40,19 @@ def generate_fed_reg_date_plot(df):
     Returns:
         str: HTML for Federal Register date plot
     """
-    # Sort and group by fed_reg_publication_date
-    date_counts = df.groupby("fed_reg_publication_date").size().reset_index()
+    # Ensure date is parsed correctly
+    df['fed_reg_publication_date'] = pd.to_datetime(df['fed_reg_publication_date']).dt.normalize()
+    
+    # Group by date
+    date_counts = df.groupby(df['fed_reg_publication_date'].dt.date).size().reset_index()
     date_counts.columns = ["Date", "Count"]
     date_counts = date_counts.sort_values("Date")
 
     # Calculate cumulative count
     date_counts["Cumulative_Count"] = date_counts["Count"].cumsum()
+
+    # Convert dates to string for plotting
+    date_counts["Date"] = date_counts["Date"].astype(str)
 
     # Create figure
     fig = go.Figure()
@@ -75,16 +80,20 @@ def generate_fed_reg_date_plot(df):
         )
     )
 
-    # Update layout
+    # Update layout with more explicit x-axis configuration
     fig.update_layout(
         title="Federal Register Publication Dates",
         xaxis_title="Date",
         yaxis_title="Entries",
         legend_title_text="Metrics",
+        xaxis=dict(
+            tickmode='array',
+            tickvals=date_counts["Date"],
+            ticktext=date_counts["Date"]
+        )
     )
 
     return pltoff.plot(fig, output_type="div", include_plotlyjs="cdn")
-
 
 def generate_html_report(filepath, output_path="index.html"):
     """
@@ -124,7 +133,16 @@ def generate_html_report(filepath, output_path="index.html"):
     </head>
     <body>
         <div class="container-fluid">
-            <h1 class="text-center mb-4">NIH Federal Register Closed Meeting Tracker</h1>
+        <h1 class="text-center mb-4" style="font-size: 2.5rem; color: #4CAF50; font-weight: bold;">NIH Federal Register Closed Meeting Tracker</h1>
+        <p class="text-center" style="font-size: 1.2rem; color: #555; line-height: 1.6;">
+        This report tracks closed meetings published in the <a href="https://www.federalregister.gov/agencies/national-institutes-of-health" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">National Institutes of Health (NIH) Federal Register</a>.
+        </p>
+        <p class="text-center" style="font-size: 1.1rem; color: #555; font-weight: bold; line-height: 1.6;">
+        This report may contain errors. Please verify the details before drawing any conclusions.
+        </p>
+        <p class="text-center" style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+        Created by <a href="https://evoquantbio.com/" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">Evoquant Bio</a>.
+        </p>
             <div class="row">
                 <div class="col-12 plot-container">
                     {fed_reg_plot}
