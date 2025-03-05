@@ -182,4 +182,4 @@ def generate_html_report(filepath, output_path="index.html"):
 
 
 # Example usage
-generate_html_report("data.json")
+generate_html_report("data.jsonl")

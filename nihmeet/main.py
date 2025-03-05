@@ -12,7 +12,7 @@ logging.basicConfig(
 
 def get_existing_hashes():
     d = set()
-    with open("data.json", "r") as f:
+    with open("data.jsonl", "r") as f:
         for line in f:
             parsed = json.loads(line)
             d.add(parsed["hash"])
