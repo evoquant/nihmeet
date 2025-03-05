@@ -135,7 +135,7 @@ def generate_html_report(filepath, output_path="index.html"):
         <div class="container-fluid">
         <h1 class="text-center mb-4" style="font-size: 2.5rem; color: #4CAF50; font-weight: bold;">NIH Federal Register Closed Meeting Tracker</h1>
         <p class="text-center" style="font-size: 1.2rem; color: #555; line-height: 1.6;">
-        This report tracks closed meetings published in the <a href="https://www.federalregister.gov/agencies/national-institutes-of-health" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">National Institutes of Health (NIH) Federal Register</a>.
+        This report tracks closed meetings published by the National Institutes of Health (NIH) in the <a href="https://www.federalregister.gov/agencies/national-institutes-of-health" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">Federal Register</a>.
         </p>
         <p class="text-center" style="font-size: 1.1rem; color: #555; font-weight: bold; line-height: 1.6;">
         This report may contain errors. Please verify the details before drawing any conclusions.
