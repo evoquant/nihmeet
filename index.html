@@ -1,0 +1,330 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meeting Data Visualization</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+        <style>
+            body { padding: 20px; }
+            .plot-container { margin-bottom: 30px; }
+            .table-container { max-height: 600px; overflow-y: auto; }
+            #meetingsTable { width: 100% !important; }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 class="text-center mb-4">Meeting Data Analysis</h1>
+            
+            <div class="row">
+                <div class="col-12 plot-container">
+                    <h3 class="text-center">Federal Register Publication Dates</h3>
+                    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>                <div id="b8559724-f906-4ed6-a732-0e35a32546ef" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b8559724-f906-4ed6-a732-0e35a32546ef")) {                    Plotly.newPlot(                        "b8559724-f906-4ed6-a732-0e35a32546ef",                        [{"marker":{"color":"#1f77b4"},"name":"Daily Entries","opacity":0.6,"x":["2025-03-04","2025-03-05"],"y":[4,16],"type":"bar"},{"line":{"color":"#ff7f0e","width":2},"marker":{"size":8},"mode":"lines+markers","name":"Cumulative Entries","x":["2025-03-04","2025-03-05"],"y":[4,20],"type":"scatter"}],                        {"legend":{"title":{"text":"Metrics"}},"template":{"data":{"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Federal Register Publication Dates"},"xaxis":{"title":{"text":"Date"}},"yaxis":{"title":{"text":"Entries"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h2 class="text-center">Full Meeting Details</h2>
+                    <div class="table-container">
+                        <table border="1" class="dataframe table table-striped table-hover" id="meetingsTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>fed_reg_publication_date</th>
+      <th>committee</th>
+      <th>start_date</th>
+      <th>start_time</th>
+      <th>end_date</th>
+      <th>end_time</th>
+      <th>date</th>
+      <th>time</th>
+      <th>agenda</th>
+      <th>meeting_format</th>
+      <th>hash</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Cell Biology Integrated Review Group; Cellular Signaling and Regulatory Systems Study Section.</td>
+      <td>2025-04-07</td>
+      <td>10:00</td>
+      <td>2025-04-08</td>
+      <td>18:00</td>
+      <td>April 7-8, 2025.</td>
+      <td>10:00 a.m.-6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>5f2d696240eedf0110595a613c8171ed</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Risk, Prevention and Health Behavior Integrated Review Group; Biobehavioral Medicine and Health Outcomes Study Section.</td>
+      <td>2025-04-09</td>
+      <td>9:30</td>
+      <td>2025-04-11</td>
+      <td>17:00</td>
+      <td>April 9-11, 2025.</td>
+      <td>9:30 a.m.-5:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>f7c989a574d7498f15273d1213f301c2</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Applied Therapeutics for Cancer Integrated Review Group; Mechanisms of Cancer Therapeutics B Study Section.</td>
+      <td>2025-03-27</td>
+      <td>9:00</td>
+      <td>2025-03-28</td>
+      <td>20:00</td>
+      <td>March 27-28, 2025.</td>
+      <td>9:00 a.m. to 8:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>a8fa8dc3ea54f53c69bc9c8ce01f9461</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Bioengineering Sciences &amp; Technologies Integrated Review Group; Biodata Management and Analysis Study Section.</td>
+      <td>2025-04-03</td>
+      <td>9:00</td>
+      <td>2025-04-04</td>
+      <td>19:00</td>
+      <td>April 3-4, 2025.</td>
+      <td>9:00 a.m. to 7:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>8999457b94e2b34202bfdfbf8b23395a</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>: Surgical Sciences, Biomedical Imaging and Bioengineering Integrated Review Group; Emerging Imaging Technologies and Applications Study Section.</td>
+      <td>2025-04-09</td>
+      <td>9:00</td>
+      <td>2025-04-10</td>
+      <td>18:00</td>
+      <td>April 9-10, 2025.</td>
+      <td>9:00 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>bbe1599ed205f6de076cb66a58a13205</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Surgical Sciences, Biomedical Imaging and Bioengineering Integrated Review Group; Clinical Translational Imaging Science Study Section.</td>
+      <td>2025-04-10</td>
+      <td>9:00</td>
+      <td>2025-04-11</td>
+      <td>18:00</td>
+      <td>April 10-11, 2025.</td>
+      <td>9:00 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>d3a7fbb52bd575b6fac75fa62b3e617d</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Bioengineering Sciences &amp; Technologies Integrated Review Group; Modeling and Analysis of Biological Systems Study Section.</td>
+      <td>2025-04-16</td>
+      <td>9:30</td>
+      <td>2025-04-17</td>
+      <td>18:30</td>
+      <td>April 16-17, 2025.</td>
+      <td>9:30 a.m. to 6:30 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>58a5f6b3dc2f0aa9d6f3513df4667b95</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Population Sciences and Epidemiology Integrated Review Group; Kidney Endocrine and Digestive Disorders Study Section.</td>
+      <td>2025-04-16</td>
+      <td>9:30</td>
+      <td>2025-04-17</td>
+      <td>18:00</td>
+      <td>April 16-17, 2025.</td>
+      <td>9:30 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>55b2b5ca53d9ea0ceb22862c84924c6e</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Vascular and Hematology Integrated Review Group;</td>
+      <td>2025-04-17</td>
+      <td>9:00</td>
+      <td>2025-04-18</td>
+      <td>21:00</td>
+      <td>April 17-18, 2025.</td>
+      <td>9:00 a.m. to 9:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>2c04d1f03f575e487fc6127e26e71f83</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Oncology 1-Basic Translational Integrated Review Group; Biochemical and Cellular Oncogenesis Study Section.</td>
+      <td>2025-04-22</td>
+      <td>9:30</td>
+      <td>2025-04-23</td>
+      <td>18:00</td>
+      <td>April 22-23, 2025.</td>
+      <td>9:30 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>9775da20caa6b754ad689158bfbbc4af</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Vascular and Hematology Integrated Review Group; Integrative Vascular Physiology and Pathology Study Section.</td>
+      <td>2025-03-24</td>
+      <td>9:00</td>
+      <td>2025-03-25</td>
+      <td>19:00</td>
+      <td>March 24-25, 2025.</td>
+      <td>9:00 a.m. to 7:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>971a4b589475ed18a555cde7927cd551</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Applied Therapeutics for Cancer Integrated Review Group; Mechanisms of Cancer Therapeutics A Study Section.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>March 31-April 1, 2025.</td>
+      <td>9:00 a.m. to 8:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>babb968d410bcfeb6f8b04f13c566590</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Applied Therapeutics for Cancer Integrated Review Group; Mechanisms of Cancer Therapeutics C Study Section.</td>
+      <td>2025-04-01</td>
+      <td>8:00</td>
+      <td>2025-04-02</td>
+      <td>18:00</td>
+      <td>April 1-2, 2025.</td>
+      <td>8:00 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>78c6ae9636ab0e179d59a9754eb10e18</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Bioengineering Sciences &amp; Technologies Integrated Review Group; Biomaterials and Biointerfaces Study Section.</td>
+      <td>2025-04-02</td>
+      <td>9:00</td>
+      <td>2025-04-03</td>
+      <td>18:00</td>
+      <td>April 2-3, 2025.</td>
+      <td>9:00 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>8628d57da153167c32c62d478fef3249</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Oncology 1-Basic Translational Integrated Review Group; Gene Regulation in Cancer Study Section.</td>
+      <td>2025-04-21</td>
+      <td>9:30</td>
+      <td>2025-04-22</td>
+      <td>18:00</td>
+      <td>April 21-22, 2025.</td>
+      <td>9:30 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>ae4b99bdbc383bf1c2ae1c5dc03fa1a3</td>
+    </tr>
+    <tr>
+      <td>2025-03-05</td>
+      <td>Risk, Prevention and Health Behavior Integrated Review Group; Interventions to Prevent and Treat Addictions Study Section.</td>
+      <td>2025-04-23</td>
+      <td>9:30</td>
+      <td>2025-04-25</td>
+      <td>18:00</td>
+      <td>April 23-25, 2025.</td>
+      <td>9:30 a.m. to 6:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>7563cd27fec3b590064e62a4052458d0</td>
+    </tr>
+    <tr>
+      <td>2025-03-04</td>
+      <td>Digestive, Kidney and Urological Systems Integrated Review Group; Pathobiology of Kidney Disease Study Section.</td>
+      <td>2025-03-24</td>
+      <td>9:00</td>
+      <td>2025-03-25</td>
+      <td>20:00</td>
+      <td>March 24-25, 2025.</td>
+      <td>9:00 a.m. to 8:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>ae617ecd7aca1d5ec2bbd947fd5efb35</td>
+    </tr>
+    <tr>
+      <td>2025-03-04</td>
+      <td>Center for Scientific Review Special Emphasis Panel; RFA-RM-24-004: NIH Director's Transformative Research Awards.</td>
+      <td>2025-03-31</td>
+      <td>9:00</td>
+      <td>2025-03-31</td>
+      <td>20:00</td>
+      <td>March 31, 2025.</td>
+      <td>9:00 a.m. to 8:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>5308f8383d24497b457eae57af644303</td>
+    </tr>
+    <tr>
+      <td>2025-03-04</td>
+      <td>Center for Scientific Review Special Emphasis Panel; NIH Director's New Innovator Award Program.</td>
+      <td>2025-04-01</td>
+      <td>9:00</td>
+      <td>2025-04-02</td>
+      <td>19:00</td>
+      <td>April 1-2, 2025.</td>
+      <td>9:00 a.m. to 7:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>3ccdbb708bd0b8dffa14ad9b6cc52ef4</td>
+    </tr>
+    <tr>
+      <td>2025-03-04</td>
+      <td>Center for Scientific Review Special Emphasis Panel; NIH Director's New Innovator Award Program (DP2).</td>
+      <td>2025-04-03</td>
+      <td>9:00</td>
+      <td>2025-04-04</td>
+      <td>19:00</td>
+      <td>April 3-4, 2025.</td>
+      <td>9:00 a.m. to 7:00 p.m.</td>
+      <td>To review and evaluate grant applications.</td>
+      <td>Virtual Meeting.</td>
+      <td>19336ac9ecf03d523ad7b86ffafe7cae</td>
+    </tr>
+  </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#meetingsTable').DataTable({
+                    pageLength: 25,
+                    lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                    order: []
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
