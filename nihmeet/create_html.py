@@ -84,7 +84,7 @@ def generate_fed_reg_date_plot(df):
     fig.update_layout(
         title="Federal Register Publication Dates",
         xaxis_title="Date",
-        yaxis_title="Entries",
+        yaxis_title="# Meetings Published",
         legend_title_text="Metrics",
         xaxis=dict(
             tickmode='array',
