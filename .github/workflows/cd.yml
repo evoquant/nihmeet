@@ -2,6 +2,7 @@ name: Continuous Deployment
 
 on:
   schedule:
+    - cron: '0 0 1 1 *'
   workflow_dispatch:
 
 concurrency:
